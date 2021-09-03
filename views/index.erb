@@ -5,6 +5,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/count.css">
+    <script
+		    type="text/javascript"
+		    src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
+    ></script>
   </head>
   <body>
     <form action="/new" method="post">
@@ -12,7 +16,7 @@
     </form>
     <% @counters.each do |counter|%>
       <div class="counter">
-        <h1><%= counter.number %></h1>
+        <h1 id="number<%= counter.id %>"><%= counter.number %></h1>
         <form action="/plus/<%= counter.id %>" method="post">
           <input type="submit" value="+">
         </form>
@@ -26,3 +30,21 @@
     <% end %>
   </body>
 </html>
+
+<script>
+  window.onload = function(){
+    <% @counters.each do |counter| %>
+      var change_h1 = document.getElementById("number<%= counter.id %>");
+      <% if counter.number % 15 == 0 && counter.number != 0 %>
+        change_h1.style.color = '#2a6d39'
+      <% elsif counter.number % 3 == 0 && counter.number != 0 %>
+        change_h1.style.color = '#d01026'
+        change_h1.style.border = '#f8b516 solid 1px'
+      <% elsif counter.number % 5 == 0 && counter.number != 0 %>
+        change_h1.style.color = '#ec6c1f'
+      <% else %>
+        change_h1.style.color = '#edda15'
+      <% end %>
+    <% end %>
+  }
+</script>

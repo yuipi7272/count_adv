@@ -30,7 +30,7 @@ h1{
     line-height: 100px;
     
     /* 枠の太さ 線の種類 色 */
-    border: 1px solid #009688;
+    border: #d8d8d8 1px solid;
     
     /* 枠を丸くする */
     border-radius: 50%;
