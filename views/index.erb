@@ -7,12 +7,22 @@
     <link rel="stylesheet" href="/assets/css/count.css">
   </head>
   <body>
-    <h1><%= @number %></h1>
-    <form action="/plus" method="post">
-      <input type="submit" value="+">
+    <form action="/new" method="post">
+      <input type="submit" value="Create new counter">
     </form>
-    <form action="/minus" method="post">
-      <input type="submit" value="-">
-    </form>
+    <% @counters.each do |counter|%>
+      <div class="counter">
+        <h1><%= counter.number %></h1>
+        <form action="/plus/<%= counter.id %>" method="post">
+          <input type="submit" value="+">
+        </form>
+        <form action="/minus/<%= counter.id %>" method="post">
+          <input type="submit" value="-">
+        </form>
+        <form action="/clear/<%= counter.id %>" method="post">
+          <input type="submit" value="clear">
+        </form>
+      </div>
+    <% end %>
   </body>
 </html>
