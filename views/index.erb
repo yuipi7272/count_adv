@@ -40,6 +40,9 @@
       <% elsif counter.number % 3 == 0 && counter.number != 0 %>
         change_h1.style.color = '#d01026'
         change_h1.style.border = '#f8b516 solid 1px'
+      <% elsif counter.number.to_s.include?("3") && counter.number != 0 %>
+        change_h1.style.color = '#d01026'
+        change_h1.style.border = '#f8b516 solid 1px'
       <% elsif counter.number % 5 == 0 && counter.number != 0 %>
         change_h1.style.color = '#ec6c1f'
       <% else %>
