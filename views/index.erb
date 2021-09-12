@@ -37,6 +37,7 @@
       var change_h1 = document.getElementById("number<%= counter.id %>");
       <% if counter.number % 15 == 0 && counter.number != 0 %>
         change_h1.style.color = '#2a6d39'
+        change_h1.style.border = '#f8b516 solid 1px'
       <% elsif counter.number % 3 == 0 && counter.number != 0 %>
         change_h1.style.color = '#d01026'
         change_h1.style.border = '#f8b516 solid 1px'
